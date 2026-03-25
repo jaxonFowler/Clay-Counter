@@ -1,0 +1,25 @@
+# Arduino build output
+build/
+*.hex
+*.elf
+*.map
+*.o
+*.a
+*.d
+
+# Arduino IDE temp files
+*.tmp
+
+# Windows
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Altium generated outputs (keep source files, ignore generated exports)
+# Comment these out if you want to track generated outputs
+Project Outputs for */
+__Previews/
+History/
+
+# SolidWorks
+*.swp
