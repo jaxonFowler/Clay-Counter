@@ -26,7 +26,7 @@ A compact, battery-powered clay shooting hit/miss counter with a navigable histo
 TP4056 OUT+ → SW1 (power switch) → U3 MCP1700 LDO → VCC_3V3 → ESP32 VDD pin
 TP4056 OUT+ → R8 → BAT_SENSE → R9 → GND   (voltage divider to ADC)
 
-J2 USB-C (on PCB): programming (DP1/DP2 to GPIO19/18) + charging (VBUS → VBUS_5V → J1 IN+). Single port for both functions. TP4056 module's onboard USB-C desoldered; wired to custom PCB footprint pads.
+J2 USB-C (on PCB): programming (USB_DP/USB_DN to GPIO19/18) + charging (VBUS → VBUS_5V → J1 IN+). Single port for both functions. TP4056 module's onboard USB-C desoldered; wired to custom PCB footprint pads.
 TP4056 USB-C: charging only (unchanged from Rev 3.0)
 ```
 
@@ -54,8 +54,8 @@ Exact GPIO assignments to be finalized against chosen module pinout. Suggested m
 | GPIO6 | NAV_SELECT | D-pad SELECT · Shooting: Undo · Long-press: toggle mode |
 | GPIO0 | BAT_SENSE | Battery voltage ADC (ADC1 channel) |
 | EN | RST | Reset — external button SW2 |
-| GPIO18 | USB DP2 | Reserved — programming (do not use) |
-| GPIO19 | USB DP1 | Reserved — programming (do not use) |
+| GPIO18 | USB_DN | Reserved — programming (do not use) |
+| GPIO19 | USB_DP | Reserved — programming (do not use) |
 
 ---
 
@@ -97,7 +97,7 @@ Exact GPIO assignments to be finalized against chosen module pinout. Suggested m
 | U2 | CANADUINO 26295 OLED | Via 4-pin female header |
 | U3 | MCP1700T-3302E/TT (SOT-23) | 3.3V LDO, 250mA. Required — bare module has no onboard LDO. |
 | J1 | TP4056 + DW01A module | USB-C charging, battery protection |
-| J2 | GCT USB4085-GF-A USB-C receptacle | PCB programming port. DP1→GPIO19, DP2→GPIO18, CC1/CC2→R10/R11→GND. VBUS not connected to power rail. |
+| J2 | GCT USB4085-GF-A USB-C receptacle | PCB programming + charging port. USB_DP→GPIO19, USB_DN→GPIO18, CC1/CC2→R10/R11→GND. VBUS→VBUS_5V→J1 IN+. |
 
 ---
 
@@ -165,7 +165,7 @@ Exact GPIO assignments to be finalized against chosen module pinout. Suggested m
 - **Enclosure:** Not started.
 - **Open items for Rev 4.0:**
   - Module confirmed: ESP32-C3-MINI-1 bare module. LDO confirmed: U3 MCP1700-3302E required.
-  - USB-C programming port confirmed: J2 on PCB (DP1/DP2, CC1/CC2 resistors R10/R11)
+  - USB-C programming port confirmed: J2 on PCB (USB_DP/USB_DN, CC1/CC2 resistors R10/R11)
   - Verify GPIO2 strapping behavior at boot (pull-down → LOW — check ESP32-C3 datasheet)
   - Decide: discrete DW01A battery protection vs. protected 18650 cell
   - BT1 (2-pin solder pads — 18650 wire leads soldered directly) still needs to be placed

@@ -53,7 +53,7 @@ const PowerDiagram = () => (
     <div style={{ marginTop: 4 }}><span style={{ color: "#7ee787" }}>TP4056 OUT+</span> ──SWITCHED_BATT──▶ <span style={{ color: "#d2a8ff" }}>SW1</span> ──RAW──▶ <span style={{ color: "#ffa657" }}>U3 LDO IN</span> ──▶ <span style={{ color: "#79c0ff" }}>VCC_3V3</span> ──▶ <span style={{ color: "#ffa657" }}>U1 3V3 pin</span></div>
     <div><span style={{ color: "#7ee787" }}>TP4056 OUT+</span> ──▶ R8 (100kΩ) ──▶ BAT_SENSE ──▶ R9 (100kΩ) ──▶ GND</div>
     <div>BAT_SENSE ──▶ <span style={{ color: "#ffa657" }}>U1 GPIO0</span> <span style={{ color: "#8b949e" }}>(ADC)</span></div>
-    <div style={{ marginTop: 8 }}><span style={{ color: "#8b949e" }}>PCB USB-C (J2)</span> ──USB_DP1/USB_DP2──▶ <span style={{ color: "#ffa657" }}>U1 GPIO19/18</span> <span style={{ color: "#8b949e" }}>(programming)</span></div>
+    <div style={{ marginTop: 8 }}><span style={{ color: "#8b949e" }}>PCB USB-C (J2)</span> ──USB_DP/USB_DN──▶ <span style={{ color: "#ffa657" }}>U1 GPIO19/18</span> <span style={{ color: "#8b949e" }}>(programming)</span></div>
     <div style={{ color: "#8b949e", fontSize: 10 }}>J2 CC1 ──R10 (5.1kΩ)──▶ GND  |  J2 CC2 ──R11 (5.1kΩ)──▶ GND</div>
     <div style={{ marginTop: 8, color: "#8b949e", fontSize: 10 }}>C1 (10µF): RAW to GND  |  C2–C3 (100nF): VCC_3V3 near OLED and LDO output  |  C4 (4.7µF): VBUS_5V to GND</div>
   </div>
@@ -141,8 +141,8 @@ export default function Schematic() {
                   <NetRow net="NAV_LEFT" color={C.btn} items={["U1 GPIO4", "SW_NAV3 pin2", "R5 pin1"]} badge="changed" />
                   <NetRow net="NAV_RIGHT" color={C.btn} items={["U1 GPIO5", "SW_NAV4 pin2", "R6 pin1"]} badge="changed" />
                   <NetRow net="NAV_SELECT" color={C.btn} items={["U1 GPIO6", "SW_NAV5 pin2", "R7 pin1"]} badge="changed" />
-                  <NetRow net="USB_DP1" color={C.ctrl} items={["J2 DP1", "U1 GPIO19"]} badge="new" />
-                  <NetRow net="USB_DP2" color={C.ctrl} items={["J2 DP2", "U1 GPIO18"]} badge="new" />
+                  <NetRow net="USB_DP" color={C.ctrl} items={["J2 DP1", "U1 GPIO19"]} badge="new" />
+                  <NetRow net="USB_DN" color={C.ctrl} items={["J2 DP2", "U1 GPIO18"]} badge="new" />
                 </tbody>
               </table>
             </div>
@@ -223,8 +223,8 @@ export default function Schematic() {
                     ["GPIO6", "NAV_SELECT", C.btn, "SELECT · Shooting: Undo · Long-press: Mode"],
                     ["GPIO8", "I2C_SDA", C.i2c, "Hardware I2C SDA — OLED"],
                     ["GPIO9", "I2C_SCL", C.i2c, "Hardware I2C SCL — OLED (HIGH at boot via R2 pull-up ✓)"],
-                    ["GPIO18", "USB_DP2", C.ctrl, "USB DP2 → J2 DP2 (PCB USB-C programming port)"],
-                    ["GPIO19", "USB_DP1", C.ctrl, "USB DP1 → J2 DP1 (PCB USB-C programming port)"],
+                    ["GPIO18", "USB_DN", C.ctrl, "USB DP2 → J2 DP2 (PCB USB-C programming port)"],
+                    ["GPIO19", "USB_DP", C.ctrl, "USB DP1 → J2 DP1 (PCB USB-C programming port)"],
                     ["GPIO1, 7, 10+", "UNCONNECTED", "#ccc", "Available for future use"],
                   ].map(([pin, net, color, fn], i) => (
                     <tr key={i} style={{ borderTop: `1px solid ${C.border}`, background: i % 2 === 0 ? "#fff" : "#fafafa" }}>
