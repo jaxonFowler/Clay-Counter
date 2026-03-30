@@ -48,13 +48,14 @@ const PowerDiagram = () => (
     <div style={{ color: "#79c0ff", fontWeight: 700, marginBottom: 8, fontSize: 13 }}>⚡ POWER CHAIN — Rev 4.0</div>
     <div><span style={{ color: "#ffa657" }}>18650 Cell</span> ──BATT_POS──▶ <span style={{ color: "#7ee787" }}>TP4056 B+</span></div>
     <div><span style={{ color: "#ffa657" }}>18650 Cell</span> ──BATT_NEG──▶ <span style={{ color: "#7ee787" }}>TP4056 B−</span> ──▶ <span style={{ color: "#ff7b72" }}>GND</span></div>
-    <div style={{ marginTop: 4 }}>TP4056 USB-C (5V) ──▶ <span style={{ color: "#7ee787" }}>TP4056 IN</span> <span style={{ color: "#8b949e" }}>(charging only)</span></div>
+    <div style={{ marginTop: 4 }}><span style={{ color: "#8b949e" }}>PCB USB-C (J2)</span> ──VBUS_5V──▶ <span style={{ color: "#7ee787" }}>J1 IN+</span> <span style={{ color: "#8b949e" }}>(charging — TP4056 module USB-C desoldered, wired to PCB footprint pads)</span></div>
+    <div style={{ color: "#8b949e", fontSize: 10, marginLeft: 8 }}>C4 (4.7µF): VBUS_5V to GND</div>
     <div style={{ marginTop: 4 }}><span style={{ color: "#7ee787" }}>TP4056 OUT+</span> ──SWITCHED_BATT──▶ <span style={{ color: "#d2a8ff" }}>SW1</span> ──RAW──▶ <span style={{ color: "#ffa657" }}>U3 LDO IN</span> ──▶ <span style={{ color: "#79c0ff" }}>VCC_3V3</span> ──▶ <span style={{ color: "#ffa657" }}>U1 3V3 pin</span></div>
     <div><span style={{ color: "#7ee787" }}>TP4056 OUT+</span> ──▶ R8 (100kΩ) ──▶ BAT_SENSE ──▶ R9 (100kΩ) ──▶ GND</div>
     <div>BAT_SENSE ──▶ <span style={{ color: "#ffa657" }}>U1 GPIO0</span> <span style={{ color: "#8b949e" }}>(ADC)</span></div>
-    <div style={{ marginTop: 8 }}><span style={{ color: "#8b949e" }}>PCB USB-C (J2)</span> ──USB_DP/USB_DM──▶ <span style={{ color: "#ffa657" }}>U1 GPIO19/18</span> <span style={{ color: "#8b949e" }}>(programming only — VBUS not connected to power chain)</span></div>
+    <div style={{ marginTop: 8 }}><span style={{ color: "#8b949e" }}>PCB USB-C (J2)</span> ──USB_DP1/USB_DP2──▶ <span style={{ color: "#ffa657" }}>U1 GPIO19/18</span> <span style={{ color: "#8b949e" }}>(programming)</span></div>
     <div style={{ color: "#8b949e", fontSize: 10 }}>J2 CC1 ──R10 (5.1kΩ)──▶ GND  |  J2 CC2 ──R11 (5.1kΩ)──▶ GND</div>
-    <div style={{ marginTop: 8, color: "#8b949e", fontSize: 10 }}>C1 (10µF): RAW to GND  |  C2–C3 (100nF): VCC_3V3 near OLED and LDO output</div>
+    <div style={{ marginTop: 8, color: "#8b949e", fontSize: 10 }}>C1 (10µF): RAW to GND  |  C2–C3 (100nF): VCC_3V3 near OLED and LDO output  |  C4 (4.7µF): VBUS_5V to GND</div>
   </div>
 );
 
@@ -126,7 +127,8 @@ export default function Schematic() {
                 </thead>
                 <tbody>
                   <NetRow net="BATT_POS" color={C.pwr} items={["BT1 +", "TP4056 B+"]} />
-                  <NetRow net="GND" color={C.gnd} items={["BT1 −", "TP4056 B−/OUT−", "U1 GND", "U2 GND", "U3 GND", "J2 GND", "SW2 pin2", "R3–R7 pin2", "R9 pin2", "R10 pin2", "R11 pin2", "C1 −", "C2 −", "C3 −", "TP2"]} badge="changed" />
+                  <NetRow net="GND" color={C.gnd} items={["BT1 −", "TP4056 B−/OUT−", "U1 GND", "U2 GND", "U3 GND", "J2 GND", "SW2 pin2", "R3–R7 pin2", "R9 pin2", "R10 pin2", "R11 pin2", "C1 −", "C2 −", "C3 −", "C4 −", "TP2"]} badge="changed" />
+                  <NetRow net="VBUS_5V" color={C.pwr} items={["J2 VBUS", "J1 IN+", "C4 +"]} badge="new" />
                   <NetRow net="SWITCHED_BATT" color={C.net} items={["TP4056 OUT+", "SW1 pin1", "R8 pin1"]} />
                   <NetRow net="RAW" color={C.pwr} items={["SW1 pin2", "U3 IN", "C1 +"]} badge="changed" />
                   <NetRow net="VCC_3V3" color={C.pwr} items={["U3 OUT", "U1 3V3", "U2 VCC", "R1 pin1", "R2 pin1", "SW_NAV1–5 pin1", "C2 +", "C3 +", "TP1"]} badge="changed" />
@@ -139,8 +141,8 @@ export default function Schematic() {
                   <NetRow net="NAV_LEFT" color={C.btn} items={["U1 GPIO4", "SW_NAV3 pin2", "R5 pin1"]} badge="changed" />
                   <NetRow net="NAV_RIGHT" color={C.btn} items={["U1 GPIO5", "SW_NAV4 pin2", "R6 pin1"]} badge="changed" />
                   <NetRow net="NAV_SELECT" color={C.btn} items={["U1 GPIO6", "SW_NAV5 pin2", "R7 pin1"]} badge="changed" />
-                  <NetRow net="USB_DP" color={C.ctrl} items={["J2 D+", "U1 GPIO19"]} badge="new" />
-                  <NetRow net="USB_DM" color={C.ctrl} items={["J2 D−", "U1 GPIO18"]} badge="new" />
+                  <NetRow net="USB_DP1" color={C.ctrl} items={["J2 DP1", "U1 GPIO19"]} badge="new" />
+                  <NetRow net="USB_DP2" color={C.ctrl} items={["J2 DP2", "U1 GPIO18"]} badge="new" />
                 </tbody>
               </table>
             </div>
@@ -153,8 +155,8 @@ export default function Schematic() {
                     ["U1", "ESP32-C3-MINI-1 — bare Espressif module, castellated pads, 13.2×16.6mm, PCB antenna", "changed"],
                     ["U2", "CANADUINO 26295 — 1.3\" I2C OLED (SSD1306/SH1106), 4-pin 2.54mm header", null],
                     ["U3", "MCP1700T-3302E/TT — 3.3V LDO, SOT-23. RAW → VCC_3V3", null],
-                    ["J1", "TP4056 + DW01A module — USB-C charging, battery protection", null],
-                    ["J2", "GCT USB4085-GF-A — USB-C receptacle, PCB programming port. D+→GPIO19, D−→GPIO18, CC1/CC2→R10/R11→GND. VBUS not connected to power.", null],
+                    ["J1", "TP4056 + DW01A module — battery charging and protection. Onboard USB-C desoldered; IN+/IN− wired to custom PCB footprint pads (VBUS_5V / GND).", null],
+                    ["J2", "GCT USB4085-GF-A — USB-C receptacle. Programming (DP1→GPIO19, DP2→GPIO18) + charging (VBUS→VBUS_5V→J1 IN+). CC1/CC2→R10/R11→GND. Single USB-C for both functions.", null],
                     ["BT1", "2-pin solder pads on PCB — 18650 wire leads soldered directly (BATT_POS / GND)", null],
                     ["SW1", "C&K JS102011SAQN — SPDT slide switch. Common=SWITCHED_BATT, throw A=RAW, throw B=NC", null],
                     ["SW2", "Omron B3F-1000 — reset button. One side=RST (U1 EN), other side=GND", null],
@@ -177,6 +179,7 @@ export default function Schematic() {
                     ["C1", "10µF ceramic 16V X5R 0603 — RAW bulk decoupling", null],
                     ["C2", "100nF ceramic 16V X7R 0603 — VCC_3V3 decoupling near OLED", null],
                     ["C3", "100nF ceramic 16V X7R 0603 — VCC_3V3 decoupling at LDO output", "changed"],
+                    ["C4", "4.7µF ceramic 10V X5R 0603 — VBUS_5V decoupling (J2 VBUS to J1 IN+)", "new"],
                     ["TP1–TP4", "Test points: VCC_3V3, GND, SDA, SCL", null],
                   ].map(([ref, desc, badge], i) => (
                     <tr key={i} style={{ borderTop: `1px solid ${C.border}`, background: badge === "new" ? "#fffbf0" : badge === "changed" ? "#f3e8ff" : badge === "removed" ? "#f5f5f5" : (i % 2 ? "#fafafa" : "#fff") }}>
@@ -220,8 +223,8 @@ export default function Schematic() {
                     ["GPIO6", "NAV_SELECT", C.btn, "SELECT · Shooting: Undo · Long-press: Mode"],
                     ["GPIO8", "I2C_SDA", C.i2c, "Hardware I2C SDA — OLED"],
                     ["GPIO9", "I2C_SCL", C.i2c, "Hardware I2C SCL — OLED (HIGH at boot via R2 pull-up ✓)"],
-                    ["GPIO18", "USB_DM", C.ctrl, "USB D− → J2 D− (PCB USB-C programming port)"],
-                    ["GPIO19", "USB_DP", C.ctrl, "USB D+ → J2 D+ (PCB USB-C programming port)"],
+                    ["GPIO18", "USB_DP2", C.ctrl, "USB DP2 → J2 DP2 (PCB USB-C programming port)"],
+                    ["GPIO19", "USB_DP1", C.ctrl, "USB DP1 → J2 DP1 (PCB USB-C programming port)"],
                     ["GPIO1, 7, 10+", "UNCONNECTED", "#ccc", "Available for future use"],
                   ].map(([pin, net, color, fn], i) => (
                     <tr key={i} style={{ borderTop: `1px solid ${C.border}`, background: i % 2 === 0 ? "#fff" : "#fafafa" }}>
@@ -287,7 +290,7 @@ export default function Schematic() {
               <strong>3V3 pin input:</strong> ESP32-C3-MINI-1 bare module VDD pin is a power input — confirmed. MCP1700 LDO output connects directly here. No verification needed.
             </Note>
             <Note type="new">
-              <strong>USB-C programming port (J2):</strong> D+ → GPIO19, D− → GPIO18. CC1 and CC2 each get a 5.1kΩ resistor to GND — this tells the host to supply 5V. VBUS is present on the connector but not connected to the power rail (ESP32 runs from battery via U3 LDO). No USB-to-UART bridge chip needed — ESP32-C3 has built-in USB.
+              <strong>USB-C programming port (J2):</strong> DP1 → GPIO19, DP2 → GPIO18. CC1 and CC2 each get a 5.1kΩ resistor to GND — this tells the host to supply 5V. VBUS is present on the connector but not connected to the power rail (ESP32 runs from battery via U3 LDO). No USB-to-UART bridge chip needed — ESP32-C3 has built-in USB.
             </Note>
             <Note type="info">
               <strong>LDO confirmed (U3 MCP1700-3302E):</strong> ESP32-C3-MINI-1 bare module has no onboard LDO — requires regulated 3.3V on its VDD pin. MCP1700 dropout is ~178mV at 250mA, ~72mV at 100mA. At typical load (~120mA) min input ≈ 3.39V. Battery min is 3.5V — adequate margin.
