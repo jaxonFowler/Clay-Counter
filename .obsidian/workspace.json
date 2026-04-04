@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "hardware/pre-schematic-checklist-v4.md",
+                "file": "hardware/pcb-routing-spec.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "pre-schematic-checklist-v4"
+              "title": "pcb-routing-spec"
             }
           }
         ],
@@ -200,16 +200,17 @@
   },
   "active": "8fcbe238a95858d4",
   "lastOpenFiles": [
+    "hardware/Clay_Counter-Altium/ClayCounterPCB.$$$",
+    "hardware/Clay_Counter-Altium/History/ClayCounterPCB.~(22).PcbDoc.Zip",
+    "hardware/Clay_Counter-Altium/History/ClayCounterPCB.~(22).PcbDoc",
+    "hardware/Clay_Counter-Altium/History/ClayCounterPCB.~(21).PcbDoc.Zip",
+    "hardware/Clay_Counter-Altium/History/ClayCounterPCB.~(21).PcbDoc",
+    "hardware/pre-schematic-checklist-v4.md",
     "hardware/ClayCounterCircuit-V2.0.pdf",
     "hardware/Clay_Counter-Altium/History/ClayCounterCircuit-V2.0.~(7).SchDoc.Zip",
     "hardware/Clay_Counter-Altium/History/ClayCounterCircuit-V2.0.~(6).SchDoc.Zip",
     "hardware/Clay_Counter-Altium/History/ClayCounterCircuit-V2.0.~(5).SchDoc.Zip",
     "hardware/Clay_Counter-Altium/History/ClayCounterCircuit-V2.0.~(5).SchDoc",
-    "hardware/Clay_Counter-Altium/History/ClayCounter.~(28).SchLib.Zip",
-    "hardware/Clay_Counter-Altium/History/ClayCounter.~(28).SchLib",
-    "hardware/Clay_Counter-Altium/ClayCounter.$$$",
-    "hardware/Clay_Counter-Altium/History/ClayCounter.~(21).PcbLib.Zip",
-    "hardware/Clay_Counter-Altium/History/ClayCounter.~(21).PcbLib",
-    "hardware/Clay_Counter-Altium/History/ClayCounter.~(27).SchLib.Zip"
+    "hardware/Clay_Counter-Altium/History/ClayCounter.~(28).SchLib.Zip"
   ]
 }
