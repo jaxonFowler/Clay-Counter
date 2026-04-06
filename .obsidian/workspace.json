@@ -8,35 +8,20 @@
         "type": "tabs",
         "children": [
           {
-            "id": "36af642c181a2537",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "hardware/suggested_replacements.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "suggested_replacements"
-            }
-          },
-          {
             "id": "8fcbe238a95858d4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "hardware/pcb-routing-spec.md",
+                "file": "firmware/FIRMWARE_PLAN.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "pcb-routing-spec"
+              "title": "FIRMWARE_PLAN"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -200,17 +185,19 @@
   },
   "active": "8fcbe238a95858d4",
   "lastOpenFiles": [
-    "hardware/Clay_Counter-Altium/History/ClayCounterPCB.~(25).PcbDoc.Zip",
-    "hardware/Clay_Counter-Altium/ClayCounterPCB.$$$",
-    "hardware/Clay_Counter-Altium/History/ClayCounterPCB.~(24).PcbDoc.Zip",
-    "hardware/Clay_Counter-Altium/History/ClayCounterPCB.~(24).PcbDoc",
-    "hardware/Clay_Counter-Altium/History/ClayCounterPCB.~(23).PcbDoc.Zip",
-    "hardware/Clay_Counter-Altium/History/ClayCounterPCB.~(23).PcbDoc",
-    "hardware/Clay_Counter-Altium/History/ClayCounterPCB.~(22).PcbDoc.Zip",
-    "hardware/Clay_Counter-Altium/History/ClayCounterPCB.~(22).PcbDoc",
-    "hardware/Clay_Counter-Altium/History/ClayCounterPCB.~(21).PcbDoc.Zip",
-    "hardware/Clay_Counter-Altium/History/ClayCounterPCB.~(21).PcbDoc",
-    "hardware/pre-schematic-checklist-v4.md",
-    "hardware/ClayCounterCircuit-V2.0.pdf"
+    "CLAUDE.md",
+    "firmware/FIRMWARE_PLAN.md",
+    "firmware/ClayCounterFirmware/src/storage.cpp",
+    "firmware/ClayCounterFirmware/src/game.cpp",
+    "firmware/ClayCounterFirmware/src/display.cpp",
+    "firmware/ClayCounterFirmware/src/buttons.cpp",
+    "firmware/ClayCounterFirmware/src/ble.cpp",
+    "firmware/ClayCounterFirmware/include/types.h",
+    "firmware/ClayCounterFirmware/include/storage.h",
+    "firmware/ClayCounterFirmware/include/game.h",
+    "firmware/ClayCounterFirmware/include/display.h",
+    "firmware/ClayCounterFirmware/include/config.h",
+    "hardware/pcb-routing-spec.md",
+    "hardware/pre-schematic-checklist-v4.md"
   ]
 }

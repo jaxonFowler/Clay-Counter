@@ -11,7 +11,7 @@
 | **Manufacturer** | YAGEO |
 | **Manufacturer P/N** | CC0603KRX5R6BB106 |
 | **Description** | 10µF ±10% 10V X5R 0603 |
-| **Voltage** | 10V |
+| **Voltage** | 10V minimum — 16V rated part also acceptable (better headroom, no downside) |
 | **Dielectric** | X5R |
 | **Package** | 0603 |
 | **DigiKey URL** | https://www.digikey.com/en/products/detail/yageo/CC0603KRX5R6BB106/5195191 |
@@ -101,7 +101,7 @@
 | SW2 Reset Button | Adafruit 1119 (12mm tactile) | ✅ Keep — good as a single large reset button |
 | R1, R2 (4.7kΩ) | YAGEO RC0402JR-074K7L | ✅ Keep — 0402 fine for resistors |
 | R3–R7 (10kΩ) | YAGEO RC0402FR-0710KL | ✅ Keep |
-| R8, R9 (100kΩ) | YAGEO RC0402FR-07100KL | ✅ Keep |
+| R8, R9 (100kΩ) | YAGEO RC0402FR-07100KL | ✅ Keep — **use ±1% tolerance** (matched pair for accurate BAT_SENSE ADC readings) |
 
 > **Note:** The 0402 resistors are fine to keep — resistors are much easier to hand solder at 0402 than capacitors. The risk with 01005 was specific to capacitors.
 
