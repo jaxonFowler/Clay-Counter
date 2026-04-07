@@ -1,13 +1,5 @@
-//
-// Created by jaxon on 4/5/2026.
-//
+#pragma once
 
-#ifndef CLAYCOUNTERFIRMWARE_BUTTONS_H
-#define CLAYCOUNTERFIRMWARE_BUTTONS_H
+#include "types.h"
 
-
-class buttons {
-};
-
-
-#endif //CLAYCOUNTERFIRMWARE_BUTTONS_H
+ButtonEvent readButtons();

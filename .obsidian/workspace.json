@@ -185,6 +185,8 @@
   },
   "active": "8fcbe238a95858d4",
   "lastOpenFiles": [
+    "hardware/Clay_Counter-Altium/History/Clay_Counter-Altium.~(1).PrjPcb.Zip",
+    "hardware/Clay_Counter-Altium/History/Clay_Counter-Altium.~(1).PrjPcb",
     "CLAUDE.md",
     "firmware/FIRMWARE_PLAN.md",
     "firmware/ClayCounterFirmware/src/storage.cpp",
@@ -196,7 +198,6 @@
     "firmware/ClayCounterFirmware/include/storage.h",
     "firmware/ClayCounterFirmware/include/game.h",
     "firmware/ClayCounterFirmware/include/display.h",
-    "firmware/ClayCounterFirmware/include/config.h",
     "hardware/pcb-routing-spec.md",
     "hardware/pre-schematic-checklist-v4.md"
   ]
