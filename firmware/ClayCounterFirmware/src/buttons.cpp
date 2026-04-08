@@ -62,7 +62,7 @@ ButtonEvent readButtons() {
     if (lastDebounced[4] == HIGH && !selectLongFired) {
         if ((now - selectPressedAt) >= LONG_PRESS_MS) {
             selectLongFired = true;
-            return BTN_SELECT_LONG
+            return BTN_SELECT_LONG;
         }
     }
 

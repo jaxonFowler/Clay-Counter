@@ -24,10 +24,10 @@ static const char* const MODE_LABELS[] = {
 
 // Short labels for display (indexed by GameMode)
 static const char* const MODE_LABELS_SHORT[] = {
-    "Quick",
+    "QC",
     "Trap",
     "Skeet",
-    "Sport",
+    "Sporting",
     "5-Stand"
 };
 

@@ -1,13 +1,17 @@
-//
-// Created by jaxon on 4/5/2026.
-//
+#pragma once
 
-#ifndef CLAYCOUNTERFIRMWARE_DISPLAY_H
-#define CLAYCOUNTERFIRMWARE_DISPLAY_H
+#include "types.h"
 
+bool initDisplay();
 
-class display {
-};
+void drawMenu(uint8_t selectedIndex, uint8_t battPct);
 
+void drawModeSelect(GameMode selectedMode, uint8_t battPct);
 
-#endif //CLAYCOUNTERFIRMWARE_DISPLAY_H
+void drawShooting(const ActiveSession& session, uint8_t battPct);
+
+void drawSessionEnd(const Session& session, uint8_t battPct, bool saveSelected);
+
+void drawHistoryList(const Session sessions[], uint8_t count, uint8_t selectedIndex, uint8_t battPct);
+
+void drawHistoryDetail(const Session& session, uint8_t sessionIndex, uint8_t battPct);

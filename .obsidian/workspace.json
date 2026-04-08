@@ -185,6 +185,8 @@
   },
   "active": "8fcbe238a95858d4",
   "lastOpenFiles": [
+    "hardware/17D15470",
+    "hardware/~$Clay Counter BOM - Rev4.0.xlsx",
     "hardware/Clay_Counter-Altium/History/Clay_Counter-Altium.~(1).PrjPcb.Zip",
     "hardware/Clay_Counter-Altium/History/Clay_Counter-Altium.~(1).PrjPcb",
     "CLAUDE.md",
@@ -196,8 +198,6 @@
     "firmware/ClayCounterFirmware/src/ble.cpp",
     "firmware/ClayCounterFirmware/include/types.h",
     "firmware/ClayCounterFirmware/include/storage.h",
-    "firmware/ClayCounterFirmware/include/game.h",
-    "firmware/ClayCounterFirmware/include/display.h",
     "hardware/pcb-routing-spec.md",
     "hardware/pre-schematic-checklist-v4.md"
   ]
