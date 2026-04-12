@@ -14,4 +14,4 @@ void drawSessionEnd(const Session& session, uint8_t battPct, bool saveSelected);
 
 void drawHistoryList(const Session sessions[], uint8_t count, uint8_t selectedIndex, uint8_t battPct);
 
-void drawHistoryDetail(const Session& session, uint8_t sessionIndex, uint8_t battPct);
+void drawHistoryDetail(const Session& session, uint8_t sessionIndex, uint8_t pageIndex, uint8_t battPct);

@@ -53,17 +53,20 @@ enum ButtonEvent : uint8_t {
 };
 
 // ─── Saved session (written to NVS) ─────────────────────────────────────────
-// Compact: 48 bytes per session
+// Compact: ~70 bytes per session
 struct Session {
     GameMode mode;
     uint8_t  hits;
     uint8_t  misses;
     uint8_t  shot_count;
     uint8_t  starting_station;
-    uint8_t  option_hits;
-    uint8_t  option_misses;
+    uint8_t  option_result[5];
+    uint8_t  option_count;
+    uint8_t  option_station[5];
+    uint8_t  option_after_shot[5];
     uint8_t  station_hits[8];
     uint8_t  station_misses[8];
+    uint8_t  station_start[8];
     uint8_t  shots[25]; // bit-packed, MSB first: bit=1 → hit, bit=0 → miss
 };
 
@@ -75,8 +78,13 @@ struct ActiveSession {
     uint8_t  misses;
     uint8_t  shot_count;
     uint8_t  current_station;
-    uint8_t  option_hits;
-    uint8_t  option_misses;
+    bool     option_result[5];
+    uint8_t  option_count;
+    uint8_t  option_station[5];
+    uint8_t  option_after_shot[5];
+    uint8_t  station_hits[8];
+    uint8_t  station_misses[8];
+    uint8_t  station_start[8];
     bool     shots[MAX_SHOTS];
 };
 
