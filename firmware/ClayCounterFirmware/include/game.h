@@ -1,13 +1,17 @@
-//
-// Created by jaxon on 4/5/2026.
-//
+#pragma once
 
-#ifndef CLAYCOUNTERFIRMWARE_GAME_H
-#define CLAYCOUNTERFIRMWARE_GAME_H
+#include "types.h"
 
+ActiveSession newSession (GameMode mode);
 
-class game {
-};
+void recordHit(ActiveSession& s);
 
+void recordMiss(ActiveSession& s);
 
-#endif //CLAYCOUNTERFIRMWARE_GAME_H
+void undoLastShot(ActiveSession& s);
+
+void recordOption(ActiveSession& s, bool hit);
+
+void nextStation(ActiveSession& s);
+
+void finalizeSession(const ActiveSession&, Session&);

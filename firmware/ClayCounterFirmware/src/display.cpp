@@ -137,6 +137,7 @@ void drawSessionEnd(const Session &session, uint8_t battPct, bool saveSelected) 
     }
 
     uint8_t displayHits     = session.hits + optHits;
+    
     uint8_t total           = session.hits + session.misses;
 
     display.clearDisplay();
