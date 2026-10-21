@@ -104,4 +104,4 @@ Altium Designer · SolidWorks · C++ / PlatformIO · CLion
 
 ---
 
-Built by [Jaxon Fowler](https://www.linkedin.com/in/jaxonfowler/)
+Built by [Jaxon Fowler](https://www.linkedin.com/in/jaxonfowler/) with Assistance from Claude
