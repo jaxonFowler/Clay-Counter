@@ -23,3 +23,16 @@ History/
 
 # SolidWorks
 *.swp
+
+# PlatformIO build output and downloaded libraries
+.pio/
+
+# Editor and local tool settings
+.idea/
+.vscode/
+.obsidian/
+.claude/
+
+# Altium log files
+Project Logs for */
+*.LOG
